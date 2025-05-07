@@ -1,0 +1,94 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# loom
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/EhrmannS/loom/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EhrmannS/loom/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+The `loom` package provides standardised geo-operators for an evidence based approach to generate and modify spatial patterns. This is centred around punch card-like algorithms that make pipelines of complex spatial operations on large gridded datasets fast, transparent and reproducible.
+
+The geo-operators are grouped into three conceptually different classes of functions that
+
+- `weave` spatial patterns into gridded objects (e.g. rasters),
+- `modify` gridded objects and
+- `measure` gridded objects with a modular set of generic and specific (landscape) metrics.
+
+Each class of operators is organised into algorithms (a sequence of the scope specific operators with their respective arguments), written onto punched cards, based on which a specific task was to be carried out. Just like in a Jacquard loom, where punched cards control the process of weaving, such an algorithm documents and controls the respective operations to create spatial patterns.
+
+
+## Installation
+
+1) Install the official version from CRAN:
+
+```{r, eval=FALSE}
+# install.packages("loom")
+```
+
+or the latest development version from github:
+
+```{r, eval=FALSE}
+devtools::install_github("EhrmannS/loom")
+```
+
+2) The vignettes:
+  - give an [introduction](https://ehrmanns.github.io/loom/articles/loom.html) on the philosophy of this package,
+  - showcase example [algorithms](https://ehrmanns.github.io/landscaper/articles/usecases.html) that can run with this package, including but not limited to complex (and ecologically meaningful) neutral landscape models and mathematical morphology and
+  - discuss [landscape metrics](https://ehrmanns.github.io/loom/articles/landscape_metrics.html) to assess patterns in gridded objects.
+
+3) Think of which landscape you want to build next!
+
+
+## Examples
+
+
+
+# To-Do
+
+- [ ] check where it makes sense to write something into the group slot after modifying
+- [ ] currently there is a tentative matrix created in each step, which takes unneeded space and time. I think it should be possible to go via the "theFeatures" object directly
+- [ ] check that rle is used everywhere where it can save space
+- [ ] write an internal rle function that also summarises NAs
+- [ ] research what thigns can all be implemented with mdf_morph. I think those could be most of the filters and all sort of convolution stuff!? https://en.wikipedia.org/wiki/Convolution
+- [ ] write show method for card
+- [ ] function to carry out "colour quantisation": https://en.wikipedia.org/wiki/Color_quantization
+- [ ] read https://en.wikipedia.org/wiki/Scale_space
+- [ ] create vignette about mathematical morphology. ideally it covers all the things Guidos Toolbox can do. -> perhaps make a blog entry out of this
+- [ ] go through all of the documentation to harmonise it
+- [ ] for the measure() workflow, also include a type of "identification metric", where instead of an equation, a "which" statement is provided, according to which quantifiable objects can be identified.
+- [ ] Foreground cells that touch the edge of the map need to be treated in a special way. They can either be regarded as also being edge of the patch or they can be regarded as if the patch continues just as the last known pixels before this boundary. Any other options? This behaviour should probably be left as decision to the user. Hence I need to implement also the first option, "to regard map boundaries also as patch boundaries".
+- [ ] parallelize things (https://matloff.wordpress.com/2017/07/29/understanding-overhead-issues-in-parallel-computation/, https://www.r-exercises.com/2017/07/13/parallel-computing-exercises-foreach-and-doparallel-part-2/, https://www.r-exercises.com/2017/07/13/parallel-computing-exercises-foreach-and-doparallel-part-2-solutions/, http://gallery.rcpp.org/articles/parallel-matrix-transform/)
+- [ ] is it possible to implement some test for whether a gridded object contains patches?
+- [ ] potentially implent a hough operation (http://homepages.inf.ed.ac.uk/rbf/HIPR2/hough.htm, http://me.umn.edu/courses/me5286/vision/Notes/2015/ME5286-Lecture9.pdf)
+
+
+## potential sources for algorithms
+
+- http://gisgeography.com/image-classification-techniques-remote-sensing/
+- http://www.tandfonline.com/doi/abs/10.1080/2150704X.2016.1149251?journalCode=trsl20
+- http://www.mdpi.com/2072-4292/8/3/166
+- https://arset.gsfc.nasa.gov/land/webinars/advanced-land-classification
+- https://academic.oup.com/bioscience/article/54/6/511/294008
+- http://rspatial.org/analysis/rst/9-remotesensing.html
+- https://www.researchgate.net/publication/248977591_Integrating_Corine_Land_Cover_data_and_Landsat_TM_for_surface_emissivity_definition_Application_to_the_urban_area_of_Athens_Greece
+- https://www.jove.com/video/56142/real-time-vivo-recording-arabidopsis-calcium-signals-during-insect
+
+
+## helpful links
+
+- https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf
+- https://menugget.blogspot.com/2015/04/map-projection-cheat-sheet.html
+- https://bost.ocks.org/mike/algorithms/?t=1&cn=ZmxleGlibGVfcmVjcw%3D%3D&refsrc=email&iid=90e204098ee84319b825887ae4c1f757&uid=765311247189291008&nid=244+281088008
+- https://en.wikipedia.org/wiki/Comparison_gallery_of_image_scaling_algorithms
+- check out NLMpy https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12308

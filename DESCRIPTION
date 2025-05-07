@@ -1,0 +1,29 @@
+Package: landbuildr
+Type: Package
+Title: landscape obtaining and optimization machine
+Description: Standardised geo-operators for an evidence based approach to generate and modify spatial patterns. This is centred around punch card-like algorithms that make pipelines of spatial operations transparent and reproducible, just like Jacquard looms made the production of fabric with patterns available at industrial scale.
+Version: 0.0.1
+Authors@R: 
+    person(given = "Steffen",
+           family = "Ehrmann",
+           role = c("aut", "cre"),
+           email = "steffen@funroll-loops.de",
+           comment = c(ORCID = "0000-0002-2958-0796"))
+License: GPL (>= 3)
+URL: https://github.com/EhrmannS/landbuildr
+BugReports: https://github.com/EhrmannS/landbuildr/issues
+Depends:
+    geometr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    checkmate,
+    crayon,
+    dplyr,
+    geomio,
+    magrittr,
+    methods,
+    mmand,
+    rlang,
+    tibble

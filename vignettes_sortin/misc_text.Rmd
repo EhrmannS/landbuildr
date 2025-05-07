@@ -1,0 +1,47 @@
+---
+title: "misc text"
+author: "Steffen Ehrmann"
+date: "February 19, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Landscape Change Processes
+
+  1. Deformation: the shape is changing
+  2. Shift: the position is changing
+  3. Perforation: the number of patches is constant but the area is decreasing
+  4. Shrinkage: the area and perimeter are decreasing but the number of patches is constant.
+  5. Enlargement: the number of patches is constant but the area is increasing.
+  6. Attrition: the number of patches and the area are decreasing
+  7. Aggregation: the number of patches is decreasing but area is constant or increasing.
+  8. Creation: the number of patches and area are increasing.
+  9. Dissection: the number of patches is increasing and the area is decreasing.
+  10. Fragmentation: the number of patches is increasing and area is strongly decreasing (this should be separated into fragmentation per se and habitat loss).
+
+#'   Jaeger,J. A. 2000. Landscape division, splitting index, and effective mesh
+#'   size: new measures of landscape fragmentation. - Landscape ecology 15:
+#'   115–130.
+#'
+#'   Lang und Blaschke, 2007: Landschaftsanalyse mit GIS.
+#'
+#'   Leitão, A. B. et al. 2006. Measuring Landscapes - A Planner’s Handbook. -
+#'   Island Press.
+#'
+#'   Tischendorf,L. et al. 2003. Evaluation of patch isolation metrics in mosaic
+#'   landscapes for specialist vs. generalist dispersers. - Landscape Ecology:
+#'   41–50.
+#'
+#'   Turner,M. G. et al. 2001. Landscape Ecology in Theory and Practice. -
+#'   Springer New York.
+#'
+#'   Uuemaa,E. et al. 2009 Landscape metrics and indices: an overview of their
+#'   use in landscape research. - Living reviews in landscape research 3: 1–28.
+#'
+#'   Other programs to run comparable analyses are:
+#'   http://www.spatialanalysisonline.com/HTML/index.html?landscape_metrics.htm
+#'
+#'   http://www.umass.edu/landeco/teaching/landscape_ecology/schedule/chapter8_pattern.pdf

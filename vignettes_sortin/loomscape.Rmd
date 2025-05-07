@@ -1,0 +1,45 @@
+---
+title: "landscaper - An overview"
+author: "Steffen Ehrmann"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: yes
+    toc_float: true
+    number_sections: true
+    fig_width: 7
+    fig_caption: true
+    theme: spacelab
+    highlight: pygments
+bibliography: loomscape.bib
+link-citations: yes
+vignette: >
+  %\VignetteIndexEntry{An overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+The landscaper package is arranged around three classes of geo-operators of gridded data structures. These classes are represented by the core functions that simulate `landscape` models, `obtain` gridded (earth observation) datasets, `modify` those objects and eventually `measure` them with a modular set of generic and derived (landscape) metrics. Thus the package name 'lomm'.
+
+Each core function takes an algorithm (a sequence of the scope specific operators with their respective arguments) based on which a specific task at hand shall be carried out. Just like in a [Jacquard loom](https://en.wikipedia.org/wiki/Jacquard_machine), where punched cards control the process of weaving, such an algorithm documents and controls the respective class of geo-operations.
+
+
+# Rationale
+
+All operators that come with this package can be used in a tidy way. Based on the tidy paradigm, an algorithm is typically a pipeline of simple operations that are evaluated one after the other, on the fly. This already resembles the functioning of punched cards quite  well, but not exactly. A punched card is a single entity that can be plugged out of one machine to be used in another. A tidy pipeline does, in contrast, always start with a particular input, it combines the *what* and the *how* in one entity. When employing tidy pipelines for processing a large set of data, one can hence either set up a script with repeated pipelines that only differ in their input, or use some function that maps a function of that pipeline to all input data.
+
+`lomm` has been conceptualised so that the core functions are mappers of a set of spatial opertations that have specific requirements which are not provided by, for instance, `map`. The algorithm provided to a core function is comparable to the pipeline of the tidy paradigm. However, it is not evaluated on the fly as it is a mere list. This allows for separating the grammar of the pipeline (the *how*), from the input that shall be processed (the *what*).
+
+In the scope of spatial raster operations there are only two distinct types of data, rasters with categorical and with continuous values. An algorithm that was deviced once, can be used to process all objects of the data type it has been defined for. Therefore, when processing a large set of objects with the same or similar algorithm, an even tidier and more concise script results. This increases readability (for non-experts) and therefore transparency and reproducability of the spatial operations.
+
+also mention https://en.wikipedia.org/wiki/Domain-specific_language, https://en.wikipedia.org/wiki/Raster_data
+
+
